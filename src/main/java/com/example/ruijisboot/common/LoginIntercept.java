@@ -1,6 +1,7 @@
 package com.example.ruijisboot.common;
 
 //import com.baomidou.mybatisplus.extension.api.R;
+import cn.dev33.satoken.stp.StpUtil;
 import com.mysql.cj.Session;
 import org.springframework.stereotype.Component;
 import org.springframework.util.ObjectUtils;
@@ -21,7 +22,8 @@ public class LoginIntercept implements HandlerInterceptor {
         HttpSession session = request.getSession();
 //        String userId = (String) session.getAttribute("userId");
         System.out.println(request);
-        if (session != null && session.getAttribute("userId") != null){
+        if( StpUtil.isLogin() ){
+//        if (session != null && session.getAttribute("userId") != null){
             // 已登录
             return true;
         }else{

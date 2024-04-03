@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-@Configuration
+//@Configuration
 public class AppConfig implements WebMvcConfigurer {
     @Autowired
     private LoginIntercept loginIntercept;
@@ -23,6 +23,12 @@ public class AppConfig implements WebMvcConfigurer {
                 excludePathPatterns("/**/*.js").
                 excludePathPatterns("/**/*.css").
                 excludePathPatterns("/**/*.png").
-                excludePathPatterns("/**/*.jpg");
+                excludePathPatterns("/**/*.jpg").
+                excludePathPatterns("/doc.html").
+                excludePathPatterns("/favicon.ico").
+                excludePathPatterns("/webjars/**").
+                excludePathPatterns("/swagger-resources").
+                excludePathPatterns("/**/api-docs").
+                excludePathPatterns("upload/**");
     }
 }

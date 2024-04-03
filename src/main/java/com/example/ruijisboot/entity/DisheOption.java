@@ -9,21 +9,27 @@ import lombok.Data;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
-@ApiModel("用户实体类")
-@Data
-@TableName("employee")
-public class Employee implements Serializable {
 
-    @ApiModelProperty("用户Id")
+@ApiModel("菜品选项实体类")
+@Data
+@TableName("dishe_option")
+public class DisheOption implements Serializable {
+
+    @ApiModelProperty("选项Id")
     @TableField(value = "id", select = false)
     @TableId(type = IdType.ASSIGN_ID)
     private Long id;
 
-    @ApiModelProperty("用户名称")
-    private String name;
+    @ApiModelProperty("选项标题")
+    private String title;
 
-    @ApiModelProperty("用户密码")
-    private String password;
+    @ApiModelProperty("菜品id")
+    @TableField(value = "dishe_id")
+    private Long disheId;
+
+    @ApiModelProperty("选项值")
+    @TableField(value = "value_string")
+    private String valueString;
 
     @TableField(value = "create_time",fill = FieldFill.INSERT)
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone="GMT+8")

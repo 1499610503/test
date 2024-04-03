@@ -47,8 +47,8 @@ public class employeeServiceImpl  extends ServiceImpl<EmployeeMapper, Employee> 
             throw  new Exception("账号或密码不对");
         }
 
-        HttpSession session = request.getSession();
-        session.setAttribute("userId",employee1.getId());
+//        HttpSession session = request.getSession();
+//        session.setAttribute("userId",employee1.getId());
 
 //        redisTemplate.opsForValue().set("userId",employee1.getId());
 
@@ -71,7 +71,7 @@ public class employeeServiceImpl  extends ServiceImpl<EmployeeMapper, Employee> 
 
     @CacheEvict(value = "employeeCache", allEntries = true,beforeInvocation = true)
     public Boolean logout(HttpSession session){
-        session.removeAttribute("userId");
+//        session.removeAttribute("userId");
 //        redisTemplate.delete("userId");
         return  true;
     }
